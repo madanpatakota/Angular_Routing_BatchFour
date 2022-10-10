@@ -1,0 +1,27 @@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Rating</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor = "let item of schoolsList">
+              <td>{{item.ID}}</td>
+              <td>{{item.Name}}</td>
+              <td>{{item.Location}}</td>
+              <td>{{item.Rating}}</td>
+              <!-- <td>...more</td> -->
+              <td><a
+                 [routerLink]="['/schooldetails',item.Name]"
+                 style="color:blue ; cursor:pointer">
+                 ...More</a></td>
+       </tr>
+    
+
+      </tbody>
+</table>

@@ -1,10 +1,19 @@
-<div class="container" style="margin-top: 30px">
+<!-- <div class="container" style="margin-top: 30px">
   <ul class="nav nav-tabs">
-    <li><a routerLink="main" class="nav-item nav-link">Main</a></li>
-    <li><a routerLink="customers" class="nav-item nav-link">Customers</a></li>
-    <li><a routerLink="customerdetails" class="nav-item nav-link">CustomerDetails</a></li>
+    <li>
+      <a routerLinkActive="active"
+       [routerLinkActiveOptions]="{exact:true}" 
+       routerLink="" 
+       class="nav-item nav-link">Main</a></li>
+    <li><a routerLinkActive="active" routerLink="customers" class="nav-item nav-link">Customers</a></li>
+    <li><a routerLinkActive="active" routerLink="customerdetails" class="nav-item nav-link">CustomerDetails</a></li>
   </ul>
-
   <router-outlet></router-outlet>
-  
+</div> -->
+
+<div class="container" 
+style="padding:20px; margin-left: 100px; margin-top: 10px">
+<router-outlet></router-outlet>
 </div>
+
+
