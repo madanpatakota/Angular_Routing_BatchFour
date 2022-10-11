@@ -31,14 +31,27 @@ import { SchoolDetailsComponent } from './schools/school-details/school-details.
 // ];
 
 
+
+// 0.  I need to make a relationship b/w the schooldetails and school in appmodule.
+// 1 . schooldetails is child and schools is the parent
+// 2 . i am saying the bottom of the schools component 
+//    ( i need to prepare the one router outlet)
+
 const appRoutes = [
   {
-    path : 'schools' , component : SchoolsComponent,
-  },
-  {
-    path : 'schooldetails/:Name' , component : SchoolDetailsComponent
+    path : 'schools' , 
+    component : SchoolsComponent,
+    children : [
+      { path : 'schooldetails' , component : SchoolDetailsComponent }
+    ]
   }
 ]
+
+// {
+//   path : 'schooldetails' , component : SchoolDetailsComponent
+// }
+
+// path : route/:param
 
 @NgModule({
   declarations: [AppComponent, SchoolsComponent, SchoolDetailsComponent],

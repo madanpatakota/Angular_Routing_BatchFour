@@ -31,7 +31,8 @@ export class SchoolService {
       studentsCount: 200,
       EstablishDate: 1990,
       CityName : 'Bangolore',
-      StateName : 'Karnataka'
+      StateName : 'Karnataka',
+      isGood : true
     },
     {
       SchoolID: 'School-2',

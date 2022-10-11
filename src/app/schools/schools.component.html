@@ -1,27 +1,70 @@
-
 <table class="table table-bordered">
-    <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Location</th>
-          <th>Rating</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-       <tr *ngFor = "let item of schoolsList">
-              <td>{{item.ID}}</td>
-              <td>{{item.Name}}</td>
-              <td>{{item.Location}}</td>
-              <td>{{item.Rating}}</td>
-              <!-- <td>...more</td> -->
-              <td><a
-                 [routerLink]="['/schooldetails',item.Name]"
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Rating</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of schoolsList">
+      <td>{{ item.ID }}</td>
+      <td>{{ item.Name }}</td>
+      <td>{{ item.Location }}</td>
+      <td>{{ item.Rating }}</td>
+      <!-- <td>...more</td> -->
+      <!-- http://localhost:4200/schooldetails/School-1 -->
+      <!-- <td><a
+                 [routerLink]="['/schooldetails',item.ID]"
                  style="color:blue ; cursor:pointer">
-                 ...More</a></td>
-       </tr>
-    
+                 ...More</a></td> -->
+      <!-- <td>
+        <a
+          [routerLink]="['/schooldetails']"
+          [queryParams]="{ SID: item.ID }"
+          style="color: blue; cursor: pointer"
+        >
+          ...More</a
+        >
+      </td> -->
+      <!-- http://localhost:4200/schooldetails?SID=School-1 -->
 
-      </tbody>
+      <!-- <td>
+        <a
+          [routerLink]="['/schooldetails']"
+          [fragment]="item.ID"
+          style="color: blue; cursor: pointer"
+        >
+          ...More</a
+        >
+      </td> -->
+      <!-- http://localhost:4200/schooldetails#School-2 -->
+
+      <!-- https://github.com/madanpatakota?tab=repositories -->
+
+      <!-- <td><a
+                  (click)="evtNavigation(item.ID)"
+                  style="color:blue ; cursor:pointer">
+                  ...More</a></td> -->
+
+      <!-- path : 'schooldetails/:Name' , component : SchoolDetailsComponent -->
+      <!-- locahlost:4200/schooldetils -->
+      <!-- /schooldetails is the absoultepath -->
+
+      <td>
+        <a
+          (click)="evtNavigation(item.ID)"
+          style="color: blue; cursor: pointer"
+        >
+          ...More</a
+        >
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+
+<!-- schooldetails -->
+<router-outlet></router-outlet>

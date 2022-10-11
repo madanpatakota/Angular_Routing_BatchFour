@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SchoolService } from '../school.service';
 
 @Component({
@@ -8,11 +9,25 @@ import { SchoolService } from '../school.service';
 })
 export class SchoolsComponent implements OnInit {
 
-  constructor(private schoolService :SchoolService) { }
+  constructor(private schoolService :SchoolService , private router:Router , 
+    private activeRouter : ActivatedRoute) { }
 
   schoolsList : any = [];
   ngOnInit(): void {
       this.schoolsList = this.schoolService.schoolsList;
+  }
+
+  evtNavigation(ID:string){
+    //First approach
+     // this.router.navigate(["/schooldetails",ID]);
+     //Second approach
+     //this.router.navigate(["/schooldetails"], { queryParams : { SID : ID}});
+     console.log(this.activeRouter);
+     this.router.navigate(["schooldetails"], { fragment : ID , relativeTo  : this.activeRouter});
+    //  http://localhost:4200/schools/schooldetails#School-3
+    //http://localhost:4200/schools  --- more
+    //http://localhost:4200/schooldetails#School-3
+
   }
 
 }
