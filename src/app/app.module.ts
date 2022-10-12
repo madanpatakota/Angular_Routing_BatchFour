@@ -8,6 +8,9 @@ import { CustomersComponent } from './customers/customers.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { SchoolsComponent } from './schools/schools.component';
 import { SchoolDetailsComponent } from './schools/school-details/school-details.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { CanActivateGuard } from './can-activate.guard';
 
 // const routes : Routes =
 // {home path ---> home component}         -- Route
@@ -37,10 +40,13 @@ import { SchoolDetailsComponent } from './schools/school-details/school-details.
 // 2 . i am saying the bottom of the schools component 
 //    ( i need to prepare the one router outlet)
 
+// ng g g <____________>
 const appRoutes = [
+  {path:'login',component:LoginComponent},
   {
     path : 'schools' , 
     component : SchoolsComponent,
+    canActivate: [CanActivateGuard],
     children : [
       { path : 'schooldetails' , component : SchoolDetailsComponent }
     ]
@@ -54,8 +60,8 @@ const appRoutes = [
 // path : route/:param
 
 @NgModule({
-  declarations: [AppComponent, SchoolsComponent, SchoolDetailsComponent],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  declarations: [AppComponent, SchoolsComponent, SchoolDetailsComponent, LoginComponent],
+  imports: [BrowserModule,FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent],
 })
