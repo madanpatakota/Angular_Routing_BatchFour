@@ -11,6 +11,9 @@ import { SchoolDetailsComponent } from './schools/school-details/school-details.
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { CanActivateGuard } from './can-activate.guard';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { CanDeactivateSchoolGuard } from './can-deactivate-school.guard';
+import { CanActivateChildSchoolGuard } from './can-activate-child-school.guard';
 
 // const routes : Routes =
 // {home path ---> home component}         -- Route
@@ -33,25 +36,34 @@ import { CanActivateGuard } from './can-activate.guard';
 
 // ];
 
-
-
 // 0.  I need to make a relationship b/w the schooldetails and school in appmodule.
 // 1 . schooldetails is child and schools is the parent
-// 2 . i am saying the bottom of the schools component 
+// 2 . i am saying the bottom of the schools component
 //    ( i need to prepare the one router outlet)
 
 // ng g g <____________>
-const appRoutes = [
-  {path:'login',component:LoginComponent},
+
+// Q) i want to configure the LoginComponent when their is no Route(home page)
+
+//localhost:4200/adfalsdfnadfa
+const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   {
-    path : 'schools' , 
-    component : SchoolsComponent,
+    path: 'schools',
+    component: SchoolsComponent,
     canActivate: [CanActivateGuard],
-    children : [
-      { path : 'schooldetails' , component : SchoolDetailsComponent }
-    ]
-  }
-]
+    canDeactivate: [CanDeactivateSchoolGuard],
+    canActivateChild : [CanActivateChildSchoolGuard],
+    children: [
+      { 
+        path: 'schooldetails', component: SchoolDetailsComponent 
+      }
+    ],
+  },
+  { path: 'not-found', component: NotfoundComponent },
+  { path: '**', redirectTo: 'not-found' },
+];
 
 // {
 //   path : 'schooldetails' , component : SchoolDetailsComponent
@@ -60,8 +72,14 @@ const appRoutes = [
 // path : route/:param
 
 @NgModule({
-  declarations: [AppComponent, SchoolsComponent, SchoolDetailsComponent, LoginComponent],
-  imports: [BrowserModule,FormsModule, RouterModule.forRoot(appRoutes)],
+  declarations: [
+    AppComponent,
+    SchoolsComponent,
+    SchoolDetailsComponent,
+    LoginComponent,
+    NotfoundComponent,
+  ],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent],
 })
