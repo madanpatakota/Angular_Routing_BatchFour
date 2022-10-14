@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -14,6 +14,7 @@ import { CanActivateGuard } from './can-activate.guard';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CanDeactivateSchoolGuard } from './can-deactivate-school.guard';
 import { CanActivateChildSchoolGuard } from './can-activate-child-school.guard';
+import { ShoolResolverResolver } from './shool-resolver.resolver';
 
 // const routes : Routes =
 // {home path ---> home component}         -- Route
@@ -46,24 +47,42 @@ import { CanActivateChildSchoolGuard } from './can-activate-child-school.guard';
 // Q) i want to configure the LoginComponent when their is no Route(home page)
 
 //localhost:4200/adfalsdfnadfa
+
+// you want to pass the information
+// from service to the Component
+// via route then we use the resolve
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'schools',
     component: SchoolsComponent,
+    resolve: [ShoolResolverResolver], // who ever subscribe this route for the data....
     canActivate: [CanActivateGuard],
     canDeactivate: [CanDeactivateSchoolGuard],
-    canActivateChild : [CanActivateChildSchoolGuard],
+    canActivateChild: [CanActivateChildSchoolGuard],
     children: [
-      { 
-        path: 'schooldetails', component: SchoolDetailsComponent 
-      }
+      {
+        path: 'schooldetails',
+        component: SchoolDetailsComponent,
+      },
     ],
   },
-  { path: 'not-found', component: NotfoundComponent },
+  {
+    path: 'not-found',
+    data: [{ ErroName: 'Bad Request' }],
+
+    component: NotfoundComponent,
+  },
+  // wild charcters
   { path: '**', redirectTo: 'not-found' },
 ];
+
+// data which handles the some static data or small information
+// Roles applicaiton
+
+// resolve is for maintain the
+// data and resolve
 
 // {
 //   path : 'schooldetails' , component : SchoolDetailsComponent

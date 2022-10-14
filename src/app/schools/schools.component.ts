@@ -15,7 +15,15 @@ export class SchoolsComponent implements OnInit {
   schoolsList : any = [];
   ngOnInit(): void {
       this.schoolsList = this.schoolService.schoolsList;
-  }
+      
+
+      this.activeRouter.data.subscribe((reponse)=>{
+           console.log("*********",reponse);
+      })
+
+
+ 
+    }
 
   evtNavigation(ID:string){
     //First approach
