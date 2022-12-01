@@ -1,7 +1,63 @@
 <!-- <p>school-details works!</p> -->
 
-<p style="background-color: yellow">
+<!-- <p style="background-color: yellow">
   {{ schoolDetails?.SchoolID }} -- {{ schoolDetails?.PrinicipleName }} --
   {{ schoolDetails?.CityName }} -- {{ schoolDetails?.StateName }} --
   {{ schoolDetails?.studentsCount }} -- {{ schoolDetails?.EstablishDate }}
-</p>
+</p> -->
+
+<form style="margin: 30px">
+  <div class="row">
+    <h5>School ID is {{ schoolDetails?.SchoolID }}</h5>
+  </div>
+  <div class="form-group row" style="margin: 10px">
+    <div class="col-md-2"><label>PrinicipleName</label></div>
+
+    <div class="col-md-6">
+      <input
+        class="form-control"
+        type="text"
+        name="email"
+        placeholder="email@example.com"
+        [value]="schoolDetails?.PrinicipleName"
+        disabled
+      />
+    </div>
+  </div>
+  <div class="form-group row" style="margin: 10px">
+    <div class="col-md-2"><label>CityName</label></div>
+    <div class="col-md-6">
+      <input
+        class="form-control"
+        type="text"
+        name="password"
+        [value]="schoolDetails?.CityName"
+        disabled
+      />
+    </div>
+  </div>
+  <div class="form-group row" style="margin: 10px">
+    <div class="col-md-2"><label>StateName</label></div>
+    <div class="col-md-6">
+      <input
+        class="form-control"
+        type="text"
+        name="password"
+        [value]="schoolDetails?.StateName"
+        disabled
+      />
+    </div>
+  </div>
+  <div class="form-group row" style="margin: 10px">
+    <div class="col-md-2"><label>EstablishDate</label></div>
+    <div class="col-md-6">
+      <input
+        class="form-control"
+        type="text"
+        name="password"
+        [value]="schoolDetails?.EstablishDate"
+        disabled
+      />
+    </div>
+  </div>
+</form>

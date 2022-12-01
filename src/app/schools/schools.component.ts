@@ -27,12 +27,12 @@ export class SchoolsComponent implements OnInit {
 
   evtNavigation(ID:string){
     //First approach
-     // this.router.navigate(["/schooldetails",ID]);
+    // this.router.navigate(["/schooldetails",ID]);
      //Second approach
      //this.router.navigate(["/schooldetails"], { queryParams : { SID : ID}});
      console.log(this.activeRouter);
+    //  this.router.navigate(["/schooldetails"], { fragment : ID , relativeTo  : this.activeRouter});
      this.router.navigate(["/schooldetails"], { fragment : ID , relativeTo  : this.activeRouter});
-     this.router.navigate(["schooldetails"], { fragment : ID , relativeTo  : this.activeRouter});
     //  http://localhost:4200/schools/schooldetails#School-3
     //http://localhost:4200/schools  --- more
     //http://localhost:4200/schooldetails#School-3
