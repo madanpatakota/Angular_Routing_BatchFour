@@ -21,21 +21,20 @@ import { ShoolResolverResolver } from './shool-resolver.resolver';
 // {customes path --> customes component}  -- Route
 // {produts path --> products comopnent}   -- Route
 
-// const appRoutes: Routes = [
-//   {
-//     path: 'main',   //http://localhost:4200/main
-//     component: MainComponent,
-//   },
-//   {
-//     path: 'customers',  //http://localhost:4200/customers
-//     component: CustomersComponent,
-//   },
-//   ////http://localhost:4200/customerdetails
-//   { path: 'customerdetails', component: CustomerDetailsComponent },
+const appRoutes2: Routes = [
+  {
+    path: 'main', //http://localhost:4200/main
+    component: MainComponent,
+  },
+  {
+    path: 'customers', //http://localhost:4200/customers
+    component: CustomersComponent,
+  },
+  ////http://localhost:4200/customerdetails
+  { path: 'customerdetails', component: CustomerDetailsComponent },
 
-//   { path: '', component: MainComponent },
-
-// ];
+  { path: '', component: MainComponent },
+];
 
 // 0.  I need to make a relationship b/w the schooldetails and school in appmodule.
 // 1 . schooldetails is child and schools is the parent
@@ -51,8 +50,20 @@ import { ShoolResolverResolver } from './shool-resolver.resolver';
 // you want to pass the information
 // from service to the Component
 // via route then we use the resolve
-const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
+const appRoutes1: Routes = [
+  {
+    path: 'main', //http://localhost:4200/main
+    component: MainComponent,
+  },
+  {
+    path: 'customers', //http://localhost:4200/customers
+    component: CustomersComponent,
+  },
+  ////http://localhost:4200/customerdetails
+  { path: 'customerdetails', component: CustomerDetailsComponent },
+
+  { path: '', component: MainComponent },
+  // { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'schools',
@@ -89,6 +100,39 @@ const appRoutes: Routes = [
 // }
 
 // path : route/:param
+
+const appRoutes: Routes = [
+  {
+    path: 'main', //http://localhost:4200/main
+    component: MainComponent,
+  },
+  {
+    path: 'customers', //http://localhost:4200/customers
+    component: CustomersComponent,
+  },
+  ////http://localhost:4200/customerdetails
+  { path: 'customerdetails', component: CustomerDetailsComponent },
+
+  { path: '', component: MainComponent },
+  // { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'schools',
+    component: SchoolsComponent,
+  },
+  {
+    path: 'schooldetails',
+    component: SchoolDetailsComponent,
+  },
+  {
+    path: 'not-found',
+    data: [{ ErroName: 'Bad Request' }],
+
+    component: NotfoundComponent,
+  },
+  // wild charcters
+  { path: '**', redirectTo: 'not-found' },
+];
 
 @NgModule({
   declarations: [

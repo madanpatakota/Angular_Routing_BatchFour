@@ -31,6 +31,7 @@ export class SchoolsComponent implements OnInit {
      //Second approach
      //this.router.navigate(["/schooldetails"], { queryParams : { SID : ID}});
      console.log(this.activeRouter);
+     this.router.navigate(["/schooldetails"], { fragment : ID , relativeTo  : this.activeRouter});
      this.router.navigate(["schooldetails"], { fragment : ID , relativeTo  : this.activeRouter});
     //  http://localhost:4200/schools/schooldetails#School-3
     //http://localhost:4200/schools  --- more
