@@ -15,6 +15,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CanDeactivateSchoolGuard } from './can-deactivate-school.guard';
 import { CanActivateChildSchoolGuard } from './can-activate-child-school.guard';
 import { ShoolResolverResolver } from './shool-resolver.resolver';
+import { SchoolhistoryComponent } from './schools/schoolhistory/schoolhistory.component';
 
 // const routes : Routes =
 // {home path ---> home component}         -- Route
@@ -119,6 +120,12 @@ const appRoutes: Routes = [
   {
     path: 'schools',
     component: SchoolsComponent,
+    children: [
+      {
+        path: 'schoolhistory/:schoolID',
+        component: SchoolhistoryComponent,
+      },
+    ],
   },
   {
     path: 'schooldetails',
@@ -141,6 +148,7 @@ const appRoutes: Routes = [
     SchoolDetailsComponent,
     LoginComponent,
     NotfoundComponent,
+    SchoolhistoryComponent,
   ],
   imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],

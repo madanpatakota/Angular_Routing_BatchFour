@@ -58,16 +58,27 @@
           (click)="evtNavigation(item.ID)"
           style="color: blue; cursor: pointer"
         >
-          ...More</a
+          Edit</a
+        >
+        |
+        <a
+          (click)="evtHistoryNavigation(item.ID)"
+          style="color: green; cursor: pointer"
+        >
+          More</a
         >
       </td>
     </tr>
   </tbody>
 </table>
 
+<button class="btn btn-primary" (click)="evtUpdateUserEmail()">
+  Update user email
+</button>
+|
+<button class="btn btn-primary" (click)="evtUpdateUserEmailtoAdmin()">
+  Update user email to admin
+</button>
 
-<button class="btn btn-primary" (click)="evtUpdateUserEmail()"> Update user email</button>  |
-<button class="btn btn-primary" (click)="evtUpdateUserEmailtoAdmin()"> Update user email to admin</button>
-
-<!-- schooldetails -->
-<!-- <router-outlet></router-outlet> -->
+<!-- schoolhistory -->
+<router-outlet></router-outlet>
